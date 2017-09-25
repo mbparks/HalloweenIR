@@ -1,5 +1,9 @@
 /* Project: HalloweenIR
- * Description: 
+ * Description: Use a MagiQUest magic wand to open DIY fun for Halloween. 
+ * Wehn the correct wand is waved at the IR sensor, red LED mimicking a pumpkin's eyes
+ * will light up and a servo will open the top of a pumpkin to reveal a candy treasure
+ * inside.
+ * Last Modified: 25 September 2017
  * 
  * Attribution: IRremote libraries; Ken Shirriff, Kristian Lauszus, Matthias Neeracher
  * License: GNU Lesser General Public License v2.1
@@ -41,7 +45,7 @@ void setup()
   turnLEDEyesOff();
   delay(pumpkinDelayShort);
   
-  irrecv.enableIRIn(); // Start the receiver
+  irrecv.enableIRIn();
   
   pumpkinServo.attach(SERVO_PIN);
   pumpkinServo.write(pumpkinClosedPosition);
@@ -58,7 +62,7 @@ void loop() {
   if (irrecv.decode(&results)) {
     Serial.println(results.value, HEX);
     decodeIR(&results);
-    irrecv.resume(); // Receive the next value
+    irrecv.resume();
   }
 }
 
