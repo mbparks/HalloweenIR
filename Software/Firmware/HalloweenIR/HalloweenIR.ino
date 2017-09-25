@@ -8,7 +8,7 @@
 #include <IRremote.h>
 #include <Servo.h>
 
-const uint16_t SERVO_PIN = 3;
+const uint16_t SERVO_PIN = 10;
 const uint16_t LED1_PIN = 5;
 const uint16_t LED2_PIN = 6;
 const uint16_t IRRECV_PIN = 8;
@@ -18,8 +18,10 @@ IRrecv irrecv(IRRECV_PIN);
 decode_results results;
 
 Servo pumpkinServo;
-const uint16_t pumpkinOpenPosition = 0;
-const uint16_t pumpkinClosedPosition = 180;
+const uint16_t pumpkinOpenPosition = 90;
+const uint16_t pumpkinClosedPosition = 179;
+const uint16_t pumpkinDelayLong = 3000;
+const uint16_t pumpkinDelayShort = 1000;
 
 
 /* Function: setup
@@ -28,11 +30,13 @@ const uint16_t pumpkinClosedPosition = 180;
 void setup()
 {
   Serial.begin(9600);
-  Serial.print(F("Homebrewed IR Magic Wand System 1.0 initializing..."));
+  Serial.println(F("Homebrewed IR Magic Wand System 1.0 initializing..."));
 
   pinMode(LED1_PIN, OUTPUT);
   pinMode(LED2_PIN, OUTPUT);
   pinMode(SERVO_PIN, OUTPUT);
+
+  turnLEDEyesOff();
   
   irrecv.enableIRIn(); // Start the receiver
   
@@ -71,11 +75,11 @@ void decodeIR(decode_results *results) {
       Serial.println(F("     |-> MIKE WAND"));
       turnLEDEyesOn();
       operatePumpkinServo(pumpkinOpenPosition);
-      delay(100);
+      delay(pumpkinDelayLong);
       turnLEDEyesOff();
-      delay(100);
+      delay(pumpkinDelayShort);
       operatePumpkinServo(pumpkinClosedPosition); 
-      delay(100);  
+      delay(pumpkinDelayShort);  
     }
   }
 }
