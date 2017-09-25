@@ -19,9 +19,9 @@ decode_results results;
 
 Servo pumpkinServo;
 const uint16_t pumpkinOpenPosition = 90;
-const uint16_t pumpkinClosedPosition = 179;
-const uint16_t pumpkinDelayLong = 3000;
-const uint16_t pumpkinDelayShort = 1000;
+const uint16_t pumpkinClosedPosition = 0;
+const uint16_t pumpkinDelayLong = 15000;
+const uint16_t pumpkinDelayShort = 3000;
 
 
 /* Function: setup
@@ -36,7 +36,10 @@ void setup()
   pinMode(LED2_PIN, OUTPUT);
   pinMode(SERVO_PIN, OUTPUT);
 
+  turnLEDEyesOn();
+  delay(pumpkinDelayLong);
   turnLEDEyesOff();
+  delay(pumpkinDelayShort);
   
   irrecv.enableIRIn(); // Start the receiver
   
