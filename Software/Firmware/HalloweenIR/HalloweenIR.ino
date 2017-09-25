@@ -12,7 +12,7 @@ const uint16_t SERVO_PIN = 3;
 const uint16_t LED1_PIN = 5;
 const uint16_t LED2_PIN = 6;
 const uint16_t IRRECV_PIN = 8;
-const uint16_t MAGICWAND_SERIAL_NUM = 153312897; //153312897 is the decimal value of 0x9235E81
+const uint16_t MAGICWAND_SERIAL_NUM = 153312897; //153312897 is the decimal value of hex 0x9235E81
 
 IRrecv irrecv(IRRECV_PIN);
 decode_results results;
@@ -22,7 +22,7 @@ const uint16_t pumpkinOpenPosition = 0;
 const uint16_t pumpkinClosedPosition = 180;
 
 
-/*
+/* Function: setup
  * 
  */
 void setup()
@@ -44,7 +44,7 @@ void setup()
 
 
 
-/*
+/* Function: loop
  * 
  */
 void loop() {
@@ -58,7 +58,7 @@ void loop() {
 
 
 
-/*
+/* Function: decodeIR
  * 
  */
 void decodeIR(decode_results *results) {
@@ -82,7 +82,7 @@ void decodeIR(decode_results *results) {
 
 
 
-/*
+/* Function: turnLEDEyesOn
  * 
  */
 void turnLEDEyesOn() {
@@ -93,7 +93,7 @@ void turnLEDEyesOn() {
 
 
 
-/*
+/* Function: turnLEDEyesOff
  * 
  */
 void turnLEDEyesOff() {
@@ -104,7 +104,7 @@ void turnLEDEyesOff() {
 
 
 
-/*
+/* Function: operatePumpkinServo
  * 
  */
 void operatePumpkinServo(const uint16_t desiredServoPosition) {
