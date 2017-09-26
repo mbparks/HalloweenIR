@@ -6,6 +6,7 @@
  * Last Modified: 25 September 2017
  * 
  * Attribution: IRremote libraries; Ken Shirriff, Kristian Lauszus, Matthias Neeracher
+ * Grab the support library at https://github.com/mpflaga/Arduino-IRremote
  * License: GNU Lesser General Public License v2.1
 */
 
