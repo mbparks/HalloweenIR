@@ -1,5 +1,4 @@
-# A Very Mouser Halloween
-# Fun with Infrared
+# Magic Wand Project for Halloween Delights
 
 This DIY project shows you how you can use infrared technology to add a little magic to your Halloween this year.
 
